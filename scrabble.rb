@@ -33,12 +33,16 @@ class Scrabble
     "Z" => 10
   }
 
-  def self.score(word) # returns the total score value for the given word (case insensitive)
+  def self.score(word)
     value_array = []
     word.each_char { |l| value_array << @@letter_variable[l.upcase] }
     sum = 0
     value_array.each {|a| sum += a}
     sum
   end
-  
+
+  # def self.highest_score_from(array_of_words) #returns the word in the array with the highest score.
+  #   array_of_words = []
+  #   array_of_words.max_by { |a| a.score }
+  # end
 end
