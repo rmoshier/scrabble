@@ -1,16 +1,5 @@
-# Note that it’s better to use fewer tiles, so if the top score is tied between multiple words, pick the one with the fewest letters.
-# But there is a bonus for using all seven letters. If one of the highest scores uses all seven letters, pick that one
-# But if the there are multiple words that are the same score and same length, pick the first one in supplied list
-
-# require 'io/console'
-
 class Scrabble
   attr_accessor :word, :array_of_words
-
-  def initialize
-    # @word = word
-    # @array_of_words = ["cat", "mat", "kat", "vat", "hat"]
-  end
 
   @@letter_variable = {
     "A" => 1,
@@ -49,8 +38,7 @@ class Scrabble
     sum
   end
 
-  def self.highest_score_from(array_of_words) #returns the word in the array with the highest score.
-    # max_value = array_of_words.max_by { |a| self.score(a) }
+  def self.highest_score_from(array_of_words)
     h = {}
     array_of_words.each { |word| h[word] = score(word) }
     max_value = h.values.max
@@ -64,7 +52,7 @@ class Scrabble
     return shortest_word
   end
 
-  def self.count_words(a) #start by putsing stuff. thinks there should be a parameter where there is not one.
+  def self.count_words(a)
     h = {}
     a.each { |word| h[word] = word.length }
     min_value = h.values.min
