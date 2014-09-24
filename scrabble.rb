@@ -7,9 +7,9 @@
 class Scrabble
   attr_accessor :word, :array_of_words
 
-  def initialize(word)
-    @word = word
-    @array_of_words = ["cat", "mat", "kat", "vat", "hat"]
+  def initialize
+    # @word = word
+    # @array_of_words = ["cat", "mat", "kat", "vat", "hat"]
   end
 
   @@letter_variable = {
@@ -50,25 +50,25 @@ class Scrabble
   end
 
   def self.highest_score_from(array_of_words) #returns the word in the array with the highest score.
-    max_value = array_of_words.max_by { |a| self.score(a) }
-    # h = {}
-    # array_of_words.each { |word| h[word] = score(word) }
-    # max_value = h.values.max
-    # highest_word_score_array = []
-    # h.each do |k,v|
-    #   if v == max_value
-    #     highest_word_score_array << k
-    #   end
-    # end
-    # shortest_word = count_words(highest_word_score_array)
-    # return shortest_word
+    # max_value = array_of_words.max_by { |a| self.score(a) }
+    h = {}
+    array_of_words.each { |word| h[word] = score(word) }
+    max_value = h.values.max
+    highest_word_score_array = []
+    h.each do |k,v|
+      if v == max_value
+        highest_word_score_array << k
+      end
+    end
+    shortest_word = count_words(highest_word_score_array)
+    return shortest_word
   end
 
-  # def self.count_words(a) #start by putsing stuff. thinks there should be a parameter where there is not one.
-  #   h = {}
-  #   a.each { |word| h[word] = word.count }
-  #   puts min_value
-  #   min_value = h.values.min
-  #   return h.key(min_value)
-  # end
+  def self.count_words(a) #start by putsing stuff. thinks there should be a parameter where there is not one.
+    h = {}
+    a.each { |word| h[word] = word.length }
+    min_value = h.values.min
+    puts min_value
+    return h.key(min_value)
+  end
 end
