@@ -19,16 +19,15 @@ describe Scrabble do
       expect(Scrabble.score("cat")).to be_a Fixnum
     end
   end
-end
-#it seems like this shouldn't be described as the same thing in line 5
-  # describe "#self.score" do
-  #   it "returns nil when a number is inputted" do
-  #     expect(Scrabble.score("123")).to eq "nil"
-  #   end
-  # end
 
-  # describe "#self.highest_score_from" do
-  #   it "it returns the word in the array with the highest score" do
-  #     expect(Scrabble.highest_score_from(["cat", "mat", "kat"])).to eq "kat"
-  #   end
-  # end
+  describe "#self.highest_score_from" do
+    it "it returns the word in the array with the highest score" do
+      expect(Scrabble.highest_score_from(["cat", "mat", "kat"])).to eq "kat"
+    end
+
+    it "returns score as an integer" do
+      expect(Scrabble.highest_score_from(["cat", "mat", "kat"])).to be_a String
+    end
+  end
+
+end
