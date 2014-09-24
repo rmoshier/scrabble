@@ -21,6 +21,10 @@ describe Scrabble do
   end
 
   describe "#self.highest_score_from" do
+    it "responds to 'highest_score'" do
+      expect(Scrabble).to respond_to :highest_score_from
+    end
+
     it "it returns the word in the array with the highest score" do
       expect(Scrabble.highest_score_from(["cat", "mat", "kat"])).to eq "kat"
     end
@@ -30,4 +34,9 @@ describe Scrabble do
     end
   end
 
+  describe "#self.count_words" do
+    it "responds to 'count_words'" do
+      expect(Scrabble). to respond_to :count_words
+    end
+  end
 end
